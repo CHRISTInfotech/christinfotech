@@ -2,6 +2,16 @@ body {
     font-family: 'Roboto Slab', serif !important;
     text-decoration: none !important;
 }
+a{
+    text-decoration: none !important;
+}
+
+/*External Font family*/
+
+@font-face {
+    font-family:BebasNeuePro-SemiExpMiddle;
+    src: url('font/BebasNeuePro-SemiExpMiddle.ttf') format('truetype');
+}
 
 /* Animation */
 
@@ -410,7 +420,73 @@ textarea.form-control {
     font-size: 13px;
     color: #fff
 }
+/* Animation on Title */
+.content {
+    position: relative;
+  }
+  
+  .content h2 {
+    color: #fff;
+    font-family:BebasNeuePro-SemiExpMiddle;
+    position: absolute;
+    left:21%;
+    font-size: 3rem;
+    line-height: 1.5;  
+    transform: translate(-50%, -50%);
+  }
+  
+  .content h2:nth-child(1) {
+    color: transparent;
+    -webkit-text-stroke: 2px #252d6e;
+  }
+  
+  .content h2:nth-child(2) {
+    color: #003160;
+    animation: animate 4s ease-in-out infinite;
+  }
+  
+  @keyframes animate {
+    0%,
+    100% {
+      clip-path: polygon(
+        0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%
+      );
+    }
+  
+    50% {
+      clip-path: polygon(
+        0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%
+      );
+    }
+  }
 
-a{
-    text-decoration: none !important;
-}
+  .animated-text{
+    white-space: nowrap;
+    overflow: hidden;
+    width: 50%;
+    animation: animtext 4s steps(80, end); 
+     transition: all cubic-bezier(0.1, 0.7, 1.0, 0.1);
+  }
+
+  @keyframes animtext { 
+    from {
+       width: 0;
+       transition: all 2s ease-in-out;
+    } 
+  }
