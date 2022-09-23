@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+<style>
+    #image {
+        border-radius: 0px;
+        font-family: Arial;
+        color: #000;
+        font-size: 15px;
+        padding: 10px 20px 5px 20px;
+        text-decoration: none;
+        border: #000 1px solid;
+    }
+</style>
+</div>
+</section>
+
+<body onload="generate()">
+
+    <section class="colored-section">
+        <div class="container-fluid-other">
+            <!-- <h2 class="text-center section-heading mb-3">Our Interns</h2> -->
+            <div class="rounded d-flex justify-content-center">
+                <div class="col-md-6 col-sm-12 shadow-lg p-3 bg-light registration-box">
+                    <div class="text-center">
+                        <h3 class="text-primary">Request for service</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary"><i
+                                            class="bi bi-person-plus-fill text-white"></i></span>
+                                    <input type="text" class="form-control" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary"><i
+                                            class="bi bi-envelope text-white"></i></span>
+                                    <input type="email" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary">
+                                        <i class="bi bi-telephone text-white"></i></span>
+                                    <input type="tel" class="form-control" placeholder="888 888 8888" maxlength="10">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary">
+                                        <i class="bi bi-calendar text-white"></i></span>
+                                    <input type="text" class="form-control" id="example" placeholder="DOB">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary">
+                                <i class="bi bi-bank text-white"></i></span>
+                            <input type="password" class="form-control" placeholder="Domain">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary">
+                                <i class="bi bi-file-text text-white"></i></span>
+                                <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Reason"></textarea>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary">
+                                <i class="bi bi-check-circle text-white"></i>
+                            </span>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Area of Interest</option>
+                                <option value="1">Web Developement</option>
+                                <option value="2">Android</option>
+                                <option value="3">Machine Learning</option>
+                            </select>
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary">
+                                <i class="bi bi-clock text-white"></i>
+                            </span>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Hours</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+  
+                
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="input-group mb-3">
+
+                                    <input type="text" id="submit" placeholder="Captcha code" class="form-control">
+                                    <span class="input-group-text bg-white" >
+                                        <div onclick="generate()">
+                                            <i class="bi bi-arrow-clockwise"></i>
+                                        </div>
+                                    </span>
+                                    <div id="image"  selectable="False">
+                                    </div>
+                                    
+                                </div>
+                                <p id="key"></p>
+                                
+                            </div>
+                            <div class="d-grid col-12 mx-auto">
+                                <button class="btn btn-primary" type="button"
+                                    onclick="printmsg()"><span></span>Submit</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#example").datepicker();
+    });
+
+    var captcha;
+    function generate() {
+
+        // Clear old input
+        document.getElementById("submit").value = "";
+
+        // Access the element to store
+        // the generated captcha
+        captcha = document.getElementById("image");
+        var uniquechar = "";
+
+        const randomchar =
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        // Generate captcha for length of
+        // 5 with random character
+        for (let i = 1; i < 5; i++) {
+            uniquechar += randomchar.charAt(
+                Math.random() * randomchar.length)
+        }
+
+        // Store generated input
+        captcha.innerHTML = uniquechar;
+    }
+
+    function printmsg() {
+        const usr_input = document
+            .getElementById("submit").value;
+
+        // Check whether the input is equal
+        // to generated captcha or not
+        if (usr_input == captcha.innerHTML) {
+            var s = document.getElementById("key")
+                .innerHTML = "Matched";
+            generate();
+        }
+        else {
+            var s = document.getElementById("key")
+                .innerHTML = "not Matched";
+            generate();
+        }
+    }
+
+</script>
+
+
+{% endblock content %}
