@@ -72,14 +72,14 @@ a {
   width: 180px;
   border: 25px solid red;
   border-radius: 50%;
-  left: 40%;
+  left: 35%;
   top: -120px;
   animation: leftBounce 3s ease-in-out infinite;
 }
 
 .effect-4 {
   border-top: 30px solid transparent;
-  border-left: 30px solid #06d79c;
+  border-left: 20px solid #06d79c;
   left: 30%;
   top: 20%;
   animation: spin 15s linear infinite;
