@@ -38,14 +38,14 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text bg-primary"><i
                                             class="bi bi-person-plus-fill text-white"></i></span>
-                                    <input type="text" class="form-control" placeholder="Name">
+                                    <input type="text" class="form-control" placeholder="First Name" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text bg-primary"><i
-                                            class="bi bi-envelope text-white"></i></span>
-                                    <input type="email" class="form-control" placeholder="Email">
+                                            class="bi bi-person-plus-fill text-white"></i></span>
+                                    <input type="text" class="form-control" placeholder="Last Name" required>
                                 </div>
                             </div>
                         </div>
@@ -55,67 +55,77 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text bg-primary">
                                         <i class="bi bi-telephone text-white"></i></span>
-                                    <input type="tel" class="form-control" placeholder="888 888 8888" maxlength="10">
+                                    <input type="tel" class="form-control" placeholder="888 888 8888" maxlength="10" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text bg-primary">
-                                        <i class="bi bi-calendar text-white"></i></span>
-                                    <input type="text" class="form-control" id="example" placeholder="DOB">
+                                    <span class="input-group-text bg-primary"><i
+                                            class="bi bi-envelope text-white"></i></span>
+                                    <input type="email" class="form-control" placeholder="Email" required>
                                 </div>
                             </div>
                         </div>
 
                         <div class="input-group mb-3">
                             <span class="input-group-text bg-primary">
-                                <i class="bi bi-bank text-white"></i></span>
-                            <input type="password" class="form-control" placeholder="Domain">
+                                <i class="bi bi-building text-white"></i></span>
+                            <input type="password" class="form-control" placeholder="Company" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary">
+                                <i class="bi bi-pencil-square text-white"></i>
+                            </span>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Type of business</option>
+                                <option value="1">Technology </option>
+                                <option value="2">Food</option>
+                                <option value="3">Beauty</option>
+                                <option value="4">Finance</option>
+                            </select>
+                        </div>
+
+                        
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary">
+                                <i class="bi bi-box-arrow-in-down text-white"></i>
+                            </span>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Type of website you need ?</option>
+                                <option value="1">Personal</option>
+                                <option value="2">Educational</option>
+                                <option value="3">Sports</option>
+                                <option value="4">Food, Restaurant</option>
+                                <option value="5">Local Business</option>
+                                <option value="6">Small Business</option>
+                                <option value="7">Medium Business</option>
+                            </select>
                         </div>
 
                         <div class="input-group mb-3">
+                            
                             <span class="input-group-text bg-primary">
                                 <i class="bi bi-file-text text-white"></i></span>
-                                <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Reason"></textarea>
+                                <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Please Describe your request"></textarea>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary">
-                                <i class="bi bi-check-circle text-white"></i>
-                            </span>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Area of Interest</option>
-                                <option value="1">Web Developement</option>
-                                <option value="2">Android</option>
-                                <option value="3">Machine Learning</option>
-                            </select>
-                        </div>
-
-
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary">
-                                <i class="bi bi-clock text-white"></i>
-                            </span>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Hours</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
+                        
   
                 
 
                         <div class="row">
                             <div class="col-md-8">
+                                <label class="fw-bold">Enter Capcha</label>
                                 <div class="input-group mb-3">
-
+                                   
                                     <input type="text" id="submit" placeholder="Captcha code" class="form-control">
                                     <span class="input-group-text bg-white" >
                                         <div onclick="generate()">
                                             <i class="bi bi-arrow-clockwise"></i>
                                         </div>
                                     </span>
+                                    
                                     <div id="image"  selectable="False">
                                     </div>
                                     
