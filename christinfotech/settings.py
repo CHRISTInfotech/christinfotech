@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*gu8%c-v+cj0)*!$ynya+r1(##4=ws(&-nz=$r2!(!c=8foqr7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['christinfotech.org']
 
 
 # Application definition
@@ -116,14 +116,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = '/home/u1r60cp6vyvs/public_html/letusdream/static'
+STATIC_URL = 'christinfotech/static/'
+STATIC_ROOT = '/home/eihy0p9s0spe/public_html/christinfotech/static'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/home/u1r60cp6vyvs/public_html/letusdream/media/'
+MEDIA_ROOT = '/home/eihy0p9s0spe/public_html/christinfotech/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
