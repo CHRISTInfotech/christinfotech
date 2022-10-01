@@ -8,8 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christ Infotech</title>
+    
+    {% block extraStyles %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'style.scss' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% endblock extraStyles %}
 
     <!-- Option 1: Include in HTML -->
     <link rel="shortcut icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
@@ -32,7 +35,7 @@
     <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
     <!--Jquery cdn-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Bootstrap 5 Navbar -->
+    <!-- Bootstrap 5 Navbar -->
     
 </head>
 
@@ -46,7 +49,7 @@
 
             <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-default">
                 <div class="container">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="{% url 'main' %}">
                         <img src="{% static 'images/logo.png' %}" alt="" height="50" class="d-inline-block align-text-top">
                     </a>
 
@@ -69,15 +72,15 @@
                                 <a href="{% url 'main' %}#ourTeam" class="nav-link navbar-link">Our Team</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{% url 'ourProduct' %}" class="nav-link navbar-link">Product</a>
+                                <a href="{% url 'ourProduct' %}" class="nav-link navbar-link">Our Product</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle navbar-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                                  Service Request
+                                    Work With Us
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <li><a class="dropdown-item" href="{% url 'internshipForm' %}">Internship Request</a></li>
-                                  <li><a class="dropdown-item" href="{% url 'serviceForm' %}">Development Request</a></li>
+                                  <li><a class="dropdown-item" href="{% url 'internshipForm' %}">Join Our Team</a></li>
+                                  <li><a class="dropdown-item" href="{% url 'serviceForm' %}">Develop with US</a></li>
                                 </ul>
                               </li>
                             <li class="nav-item">
@@ -183,9 +186,10 @@
                                     <ul>
                                         <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
                                         <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                                        <li><i class="bx bx-chevron-right"></i> <a href="#">DataScience Management</a></li>
+                                        <li><i class="bx bx-chevron-right"></i> <a href="#">Data Science Projects</a></li>
                                         <li><i class="bx bx-chevron-right"></i> <a href="#">App Development</a></li>
                                         <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                                        <li><i class="bx bx-chevron-right"></i> <a href="#">AI - Projects</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-4 col-md-6 footer-contact">
