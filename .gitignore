@@ -1,7 +1,6 @@
 env/
 db.sqlite3
 .idea/
-
 home/__pycache__/
 home/migrations/__pycache__/
 home/migrations/
