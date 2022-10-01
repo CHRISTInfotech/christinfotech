@@ -8,8 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christ Infotech</title>
+    
+    {% block extraStyles %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<<<<<<< HEAD
     <link rel="stylesheet" href="{% static 'css/style.scss' %}">
+=======
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% endblock extraStyles %}
+>>>>>>> afe3385f826d5343ebfe5bb67a29c562bf957f70
 
     <!-- Option 1: Include in HTML -->
     <link rel="shortcut icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
@@ -44,7 +51,11 @@
     <!--Jquery cdn-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Bootstrap 5 Navbar -->
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> afe3385f826d5343ebfe5bb67a29c562bf957f70
 </head>
 
 <body>
@@ -57,9 +68,14 @@
 
             <nav class="navbar bg-white navbar-expand-lg navbar-light fixed-top navbar-default">
                 <div class="container">
+<<<<<<< HEAD
                     <a class="navbar-brand" href="#">
                         <img src="{% static 'images/logo.png' %}" alt="" height="50"
                             class="d-inline-block align-text-top">
+=======
+                    <a class="navbar-brand" href="{% url 'main' %}">
+                        <img src="{% static 'images/logo.png' %}" alt="" height="50" class="d-inline-block align-text-top">
+>>>>>>> afe3385f826d5343ebfe5bb67a29c562bf957f70
                     </a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -82,9 +98,10 @@
                                 <a href="{% url 'main' %}#ourTeam" class="nav-link navbar-link">Our Team</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{% url 'ourProduct' %}" class="nav-link navbar-link">Product</a>
+                                <a href="{% url 'ourProduct' %}" class="nav-link navbar-link">Our Product</a>
                             </li>
                             <li class="nav-item dropdown">
+<<<<<<< HEAD
                                 <a class="nav-link dropdown-toggle navbar-link" href="#" id="navbarDropdown"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="true">
                                     Service Request
@@ -94,6 +111,14 @@
                                             Request</a></li>
                                     <li><a class="dropdown-item" href="{% url 'serviceForm' %}">Development Request</a>
                                     </li>
+=======
+                                <a class="nav-link dropdown-toggle navbar-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                    Work With Us
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <li><a class="dropdown-item" href="{% url 'internshipForm' %}">Join Our Team</a></li>
+                                  <li><a class="dropdown-item" href="{% url 'serviceForm' %}">Develop with US</a></li>
+>>>>>>> afe3385f826d5343ebfe5bb67a29c562bf957f70
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -199,10 +224,15 @@
                                     <ul>
                                         <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
                                         <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+<<<<<<< HEAD
                                         <li><i class="bx bx-chevron-right"></i> <a href="#">DataScience Management</a>
                                         </li>
+=======
+                                        <li><i class="bx bx-chevron-right"></i> <a href="#">Data Science Projects</a></li>
+>>>>>>> afe3385f826d5343ebfe5bb67a29c562bf957f70
                                         <li><i class="bx bx-chevron-right"></i> <a href="#">App Development</a></li>
                                         <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                                        <li><i class="bx bx-chevron-right"></i> <a href="#">AI - Projects</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-4 col-md-6 footer-contact">
