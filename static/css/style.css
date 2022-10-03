@@ -121,6 +121,7 @@ a {
 }
 
 @keyframes topBounce {
+
   0%,
   100% {
     transform: translateY(0);
@@ -132,6 +133,7 @@ a {
 }
 
 @keyframes leftBounce {
+
   0%,
   100% {
     transform: translateX(0);
@@ -154,9 +156,9 @@ a {
   }
 }
 
-.icon-size{
-  width:30 !important;
-  height:30 !important;
+.icon-size {
+  width: 30 !important;
+  height: 30 !important;
 }
 
 .fade-out-effect {
@@ -222,7 +224,7 @@ textarea.form-control {
   padding: 7% 15% 7% !important;
 }
 
-.container-fluid-other{
+.container-fluid-other {
   padding: 3% 15% 3% !important;
 }
 
@@ -231,7 +233,7 @@ textarea.form-control {
 .navbar {
   padding-top: 2%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  
+
 }
 
 .navbar-brand {
@@ -262,38 +264,24 @@ textarea.form-control {
   background-color: #f8f9fa;
 }
 
-.colored-section hr{
-  margin: auto;
-  width: 20%;
-  background-color: inherit;
-  border-bottom: 5px dotted #000;
-}
-
 .white-section {
   background-color: #fff;
 }
 
-.white-section hr{
-  margin: auto;
-  width: 20%;
-  background-color: inherit;
-  border-bottom: 5px dotted #000;
-}
 
-
-.dropdown-menu{
+.dropdown-menu {
   background-color: #F8F9FA !important;
 }
 
-.nav-item{
+.nav-item {
   text-transform: uppercase;
 }
 
-.nav-item a{
-color: #000 !important;
+.nav-item a {
+  color: #000 !important;
 }
 
-.dropdown-item:active{
+.dropdown-item:active {
   color: #000 !important;
   background-color: #F8F9FA !important;
 }
@@ -496,33 +484,30 @@ color: #000 !important;
 }
 
 @keyframes animate {
+
   0%,
   100% {
-    clip-path: polygon(
-      0% 45%,
-      16% 44%,
-      33% 50%,
-      54% 60%,
-      70% 61%,
-      84% 59%,
-      100% 52%,
-      100% 100%,
-      0% 100%
-    );
+    clip-path: polygon(0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%);
   }
 
   50% {
-    clip-path: polygon(
-      0% 60%,
-      15% 65%,
-      34% 66%,
-      51% 62%,
-      67% 50%,
-      84% 45%,
-      100% 46%,
-      100% 100%,
-      0% 100%
-    );
+    clip-path: polygon(0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%);
   }
 }
 
@@ -556,12 +541,18 @@ color: #000 !important;
 }
 
 @keyframes flip {
+
   0%,
   90% {
     transform: rotateY(360deg);
   }
 }
 
+.neons-h1 {
+  -webkit-animation: glow 5s ease-in-out infinite alternate;
+  -moz-animation: glow 5s ease-in-out infinite alternate;
+  animation: glow 5s ease-in-out infinite alternate;
+}
 
 @keyframes glow {
   from {
@@ -577,5 +568,51 @@ color: #000 !important;
   }
 }
 
+
 /* Admin Panel */
 
+/* testwriting animation */
+
+/* DEMO-SPECIFIC STYLES */
+.typewriter p {
+  color: #fff;
+  overflow: hidden;
+  /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange;
+  /* The typwriter cursor */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  margin: 0 auto;
+  /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em;
+  /* Adjust as needed */
+  animation:
+    typing 6.5s steps(30, end) infinite,
+    blink-caret .5s step-end infinite;
+
+
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: orange
+  }
+}

@@ -3,8 +3,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius: 20px;
 }
 
 body {
