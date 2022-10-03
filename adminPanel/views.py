@@ -8,3 +8,5 @@ def dashboard(request):
 def login(request):
     return render(request,'adminPanel/login.html')
 
+def registrationTB(request):
+    return render(request,'adminPanel/registration_tb.html')
