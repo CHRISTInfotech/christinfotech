@@ -3,10 +3,8 @@
 
 
 {% block content %}
-<script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+</div>
+</section>
 
 <style>
     #image {
@@ -19,33 +17,38 @@
         border: #000 1px solid;
     }
 </style>
-</div>
-</section>
 
 <body onload="generate()">
 
     <section class="colored-section">
         <div class="container-fluid-other">
-            <!-- <h2 class="text-center section-heading mb-3">Our Interns</h2> -->
             <div class="rounded d-flex justify-content-center">
                 <div class="col-md-6 col-sm-12 shadow-lg p-3 bg-light registration-box">
                     <div class="text-center">
-                        <h3 class="text-primary">Develop your idea with Us</h3>
+                        <h3 class="text-primary">Develop your Ideas with us</h3>
                     </div>
+                    <form action="" class="row g-3 needs-validation" novalidate  method="post" enctype="multipart/form-data" >
+                        {% csrf_token %}
                     <div class="p-4">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="input-group mb-4">
                                     <span class="input-group-text bg-primary"><i
                                             class="bi bi-person-plus-fill text-white"></i></span>
-                                    <input type="text" class="form-control" placeholder="First Name" required>
+                                    <input type="text" class="form-control" placeholder="First Name" required name="fname">
+                                    <div class="invalid-feedback">
+                                        Name is required 
+                                  </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group mb-4">
                                     <span class="input-group-text bg-primary"><i
                                             class="bi bi-person-plus-fill text-white"></i></span>
-                                    <input type="text" class="form-control" placeholder="Last Name" required>
+                                    <input type="text" class="form-control" placeholder="Last Name" required name="lname">
+                                    <div class="invalid-feedback">
+                                        Name is required 
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -55,14 +58,20 @@
                                 <div class="input-group mb-4">
                                     <span class="input-group-text bg-primary">
                                         <i class="bi bi-telephone text-white"></i></span>
-                                    <input type="tel" class="form-control" placeholder="888 888 8888" maxlength="10" required>
+                                    <input type="tel" class="form-control" placeholder="888 888 8888" maxlength="10" required name="phoneno">
+                                    <div class="invalid-feedback">
+                                        Phone no. is required 
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group mb-4">
                                     <span class="input-group-text bg-primary"><i
                                             class="bi bi-envelope text-white"></i></span>
-                                    <input type="email" class="form-control" placeholder="Email" required>
+                                    <input type="email" class="form-control" placeholder="Email" required name="email">
+                                    <div class="invalid-feedback">
+                                        Email is required 
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -70,13 +79,19 @@
                         <div class="input-group mb-4">
                             <span class="input-group-text bg-primary">
                                 <i class="bi bi-building text-white"></i></span>
-                            <input type="text" class="form-control" placeholder="Company/Institute" required>
+                            <input type="text" class="form-control" placeholder="Company/Institute" required name="compinst">
+                            <div class="invalid-feedback">
+                                This Field is required 
+                            </div>
                         </div>
 
                         <div class="input-group mb-4">
                             <span class="input-group-text bg-primary">
                                 <i class="bi bi-pencil-square text-white"></i></span>
-                                <input type="text" class="form-control" placeholder="Department" required>   
+                                <input type="text" class="form-control" placeholder="Department" required name="department">   
+                                <div class="invalid-feedback">
+                                    This Field is required 
+                                </div>
                         </div>
 
                         
@@ -101,14 +116,20 @@
                             
                             <span class="input-group-text bg-primary">
                                 <i class="bi bi-file-text text-white"></i></span>
-                                <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Please Describe your request"></textarea>
+                                <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Please Describe your request" required name="requestdesc"></textarea>
+                                <div class="invalid-feedback">
+                                    This Field is required 
+                                </div>
                         </div>
 
                         
   
-                        <label class="fw-bold">Upload Resume</label>
+                        <label class="fw-bold">Upload Document</label>
                         <div class="input-group mb-4">
-                                <input class="form-control" type="file" id="file" name="file" placeholder="Upload Resume">
+                                <input class="form-control" type="file" id="file" name="file" placeholder="Upload Document" required name="document">
+                                <div class="invalid-feedback">
+                                    This Field is required 
+                                </div>
                         </div> 
 
                         <div class="row">
@@ -131,23 +152,42 @@
                                 
                             </div>
                             <div class="d-grid col-12 mx-auto">
-                                <button class="btn btn-primary" type="button"
+                                <button class="btn btn-primary" type="submit"
                                     onclick="printmsg()"><span></span>Submit</button>
                             </div>
                         </div>
 
 
                     </div>
-
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 </body>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $("#example").datepicker();
-    });
+ (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                   
+                }, false)
+            })
+
+            
+    })()
 
     var captcha;
     function generate() {
@@ -202,6 +242,8 @@ uploadField.onchange = function() {
        this.value = "";
     };
 };
+
+
 
 </script>
 

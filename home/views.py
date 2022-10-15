@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from home.models import Internship
+from home.models import Internship,Development
 # Create your views here.
 
 
@@ -29,7 +29,21 @@ def internshipForm(request):
 
 
 def serviceForm(request):
-    return render(request,'support/service.html')
+    if request.method == "POST":
+        fname=request.POST['fname']
+        lname=request.POST['lname']
+        phoneno=request.POST['phoneno']
+        email=request.POST['email']
+        compinst=request.POST['compinst']
+        department=request.POST['department']
+        requestdesc=request.POST['requestdesc']
+        document=request.FILES['document']
+
+        object=Development.objects.create(fname=fname,lname=lname,phoneno=phoneno,email=email,compinst=compinst,department=department,requestdesc=requestdesc,document=document)
+        object.save()
+        return redirect('serviceForm')
+    else :
+        return render(request,'support/service.html')
 
 def ourProduct(request):
     return render(request,'products/products.html')

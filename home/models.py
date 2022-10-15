@@ -12,3 +12,14 @@ class Internship(models.Model):
     areaofinterest=models.CharField(max_length=50)
     hours=models.CharField(max_length=10)
     resume=models.FileField(upload_to="media")
+
+
+class Development(models.Model):
+    fname=models.CharField(max_length=50)
+    lname=models.CharField(max_length=50)
+    phoneno=models.CharField(max_length=10,null=True)
+    email=models.CharField(max_length=50)
+    compinst=models.CharField(max_length=100)
+    department=models.CharField(max_length=100)
+    requestdesc= models.TextField(null=True)
+    document=models.FileField(upload_to="media")
