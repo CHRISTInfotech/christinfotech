@@ -1,8 +1,6 @@
- 
-  
-   :root {
+  :root {
     --offcanvas-width: 270px;
-    --topNavbarHeight: 56px;
+    --topNavbarHeight: 70px;
   }
    .sidebar-nav {
     width: var(--offcanvas-width);

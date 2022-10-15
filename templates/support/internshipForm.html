@@ -9,7 +9,7 @@
 </div>
 </section>  
 <section class="colored-section">
-    <form class="row g-3 needs-validation" novalidate>
+   
         <div class="container-fluid-other" >
             <!-- <h2 class="text-center section-heading mb-3">Our Interns</h2> -->
                 <div class="rounded d-flex justify-content-center">
@@ -17,20 +17,31 @@
                         <div class="text-center">
                             <h3 class="text-primary">Join Our Team</h3>
                         </div>
+                        <form action="" class="row g-3 needs-validation" novalidate  enctype="multipart/form-data" method="post">
+                            {% csrf_token %}
                         <div class="p-4">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input-group mb-4">
                                         <span class="input-group-text bg-primary"><i
                                                 class="bi bi-person-plus-fill text-white"></i></span>
-                                        <input type="text" class="form-control" placeholder="Name" required>
+                                        <input type="text" class="form-control" placeholder="Name" required name="name">
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Name is required 
+                                      </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group mb-4">
-                                        <span class="input-group-text bg-primary"><i
-                                                class="bi bi-envelope text-white"></i></span>
-                                        <input type="email" class="form-control" required placeholder="Email">
+                                        <span class="input-group-text bg-primary">
+                                            <i class="bi bi-envelope text-white"></i></span>
+                                        <input type="email" class="form-control" required placeholder="Email" name="email">
+                                        <div class="invalid-feedback">
+                                            Email ID is required 
+                                      </div>
                                     </div>
                                 </div>
                             </div>
@@ -40,14 +51,20 @@
                                     <div class="input-group mb-4">
                                         <span class="input-group-text bg-primary">
                                             <i class="bi bi-telephone text-white"></i></span>
-                                            <input type="tel"  class= "form-control" placeholder="888 888 8888"  maxlength="10"  >    
+                                            <input type="tel"  class= "form-control" placeholder="888 888 8888"  maxlength="10"  name="phoneno" required>    
+                                            <div class="invalid-feedback">
+                                                Phone no. is required 
+                                          </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text bg-primary">
                                             <i class="bi bi-calendar text-white"></i></span>
-                                            <input type= "text" class= "form-control" id= "example" placeholder="DOB" >
+                                            <input type="text" class= "form-control" id="from-datepicker" placeholder="DOB" name="dob" required>
+                                            <div class="invalid-feedback">
+                                               DOB is required 
+                                          </div>
                                     </div>
                                 </div>
                             </div>
@@ -55,59 +72,101 @@
                             <div class="input-group mb-4">
                                 <span class="input-group-text bg-primary">
                                     <i class="bi bi-bank text-white"></i></span>
-                                <input type="password" class="form-control" placeholder="Institute">
+                                <input type="text" class="form-control" placeholder="Institute" name="institute" required>
+                                <div class="invalid-feedback">
+                                    Institute name is required 
+                               </div>
                             </div>
     
                             <div class="input-group mb-4">
                                 <span class="input-group-text bg-primary">
                                     <i class="bi bi-file-text text-white"></i></span>
-                                <input type="password" class="form-control" placeholder="Course">
+                                <input type="text" class="form-control" placeholder="Course" name="course" required>
+                                <div class="invalid-feedback">
+                                    Course is required 
+                               </div>
                             </div>
                           
                             <div class="input-group mb-4">
                                 <span class="input-group-text bg-primary">
                                     <i class="bi bi-check-circle text-white"></i>
                                 </span>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Area of Interest</option>
-                                    <option value="1">Web Developement</option>
-                                    <option value="2">Android</option>
-                                    <option value="3">Machine Learning</option>
+                                <select class="form-select" aria-label="Default select example" name="areaofinterest" required>
+                                    <option disabled selected value="">Area of Interest</option>
+                                    <option value="Web Developement">Web Developement</option>
+                                    <option value="Android">Android</option>
+                                    <option value="Machine Learning">Machine Learning</option>
                                   </select>
+                                  <div class="invalid-feedback">
+                                    Please select valid option.
+                                </div>
                             </div>
     
                             <div class="input-group mb-4">
                                 <span class="input-group-text bg-primary">
                                     <i class="bi bi-clock text-white"></i>
                                 </span>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Hours</option>
+                                <select class="form-select" aria-label="Default select example" name="hours" required>
+                                    <option disabled selected value="">Hours</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                   </select>
+
+                                  <div class="invalid-feedback">
+                                    Please select valid option.
+                                </div>
                             </div>
                             <label class="fw-bold">Upload Resume</label>
                             <div class="input-group mb-4">
-                                    <input class="form-control" type="file" id="formFile" placeholder="Upload Resume">
+                                    <input class="form-control" type="file" id="file" placeholder="Upload Resume" name="resume" required>
+                                    <div class="invalid-feedback">
+                                        Please upload Resume
+                                    </div>
                             </div> 
                             <div class="d-grid col-12 mx-auto">
-                                <button class="btn btn-primary" type="button"><span></span>Submit</button>
+                                <button class="btn btn-primary" type="submit"><span></span>Submit</button>
                             </div>
                            
                         </div>
+                        </form>
                 </div>
             </div>
         </div>
-    </form>
    
 </section>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-    $("#example").datepicker();
-    });
-    </script>
+$( document ).ready(function() {     
+$("#from-datepicker").datepicker({          
+format: 'yyyy-mm-dd' //can also use format: 'dd-mm-yyyy'     
+});      
+});  
+
+(function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                   
+                }, false)
+            })
+
+            
+    })()
+
+</script>
 
 
 {% endblock content %}
