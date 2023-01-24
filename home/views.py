@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from adminPanel.models import Internship, Development
+from django.contrib import messages
 # Create your views here.
 
 
@@ -20,6 +21,21 @@ def internshipForm(request):
         areaofinterest=request.POST['areaofinterest']
         hours=request.POST['hours']        
         resume=request.FILES['resume']
+        object=Internship.objects.create(name=name,email=email,phoneno=phoneno,dob=dob,institute=institute,course=course,areaofinterest=areaofinterest,hours=hours,resume=resume)
+        object.save()  
+        messages.success(request, "Request received, will get back to you soon. ")
+        return redirect('internshipForm')
+    
+
+    elif request.method == "POST":
+            name=request.POST['name']
+            email=request.POST['email']
+            phoneno=request.POST['phoneno']
+            dob=request.POST['dob']
+            institute=request.POST['institute']
+            course=request.POST['course']
+            areaofinterest=request.POST['areaofinterest']
+            hours=request.POST['hours']        
         
         # post=Internship()
         # post.name=request.POST['name']
@@ -31,14 +47,16 @@ def internshipForm(request):
         # post.areaofinterest=request.POST['areaofinterest']
         # post.hours=request.POST['hours']
         # post.resume=request.FILES['resume']
-        
 
-        object=Internship.objects.create(name=name,email=email,phoneno=phoneno,dob=dob,institute=institute,course=course,areaofinterest=areaofinterest,hours=hours,resume=resume)
-        object.save()  
-        # post.save()
-        return redirect('internshipForm')
+            object=Internship.objects.create(name=name,email=email,phoneno=phoneno,dob=dob,institute=institute,course=course,areaofinterest=areaofinterest,hours=hours)
+            object.save()  
+            messages.success(request, "Request received, will get back to you soon. ")
+            # messages.error(request, "Error: This is the sample error Flash message.")
+            # post.save()
+            return redirect('internshipForm')
     else :
         return render(request,'support/internshipForm.html')
+    
 
 
 def serviceForm(request):
