@@ -30,8 +30,10 @@ def internshipForm(request):
         post.course=request.POST['course']
         post.areaofinterest=request.POST['areaofinterest']
         post.hours=request.POST['hours']
+        # post.resume=request.FILES['resume']
+        
 
-        # object=Internship.objects.create(name=name,email=email,phoneno=phoneno,dob=dob,institute=institute,course=course,areaofinterest=areaofinterest,hours=hours)
+        # object=Internship.objects.create(name=name,email=email,phoneno=phoneno,dob=dob,institute=institute,course=course,areaofinterest=areaofinterest,hours=hours,resume=resume)
         # object.save()  
         post.save()
         return redirect('internshipForm')
