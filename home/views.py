@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from home.models import Internship,Development
+from adminPanel.models import Internship, Development
 # Create your views here.
 
 
@@ -11,18 +11,29 @@ def internship(request):
 
 def internshipForm(request):
     if request.method == "POST":
-        name=request.POST['name']
-        email=request.POST['email']
-        phoneno=request.POST['phoneno']
-        dob=request.POST['dob']
-        institute=request.POST['institute']
-        course=request.POST['course']
-        areaofinterest=request.POST['areaofinterest']
-        hours=request.POST['hours']
-        resume=request.FILES['resume']
+        # name=request.POST['name']
+        # email=request.POST['email']
+        # phoneno=request.POST['phoneno']
+        # dob=request.POST['dob']
+        # institute=request.POST['institute']
+        # course=request.POST['course']
+        # areaofinterest=request.POST['areaofinterest']
+        # hours=request.POST['hours']        
+        # resume=request.FILES['resume']
+        
+        post=Internship()
+        post.name=request.POST['name']
+        post.email=request.POST['email']
+        post.phoneno=request.POST['phoneno']        
+        post.dob=request.POST['dob']
+        post.institute=request.POST['institute']
+        post.course=request.POST['course']
+        post.areaofinterest=request.POST['areaofinterest']
+        post.hours=request.POST['hours']
 
-        object=Internship.objects.create(name=name,email=email,phoneno=phoneno,dob=dob,institute=institute,course=course,areaofinterest=areaofinterest,hours=hours,resume=resume)
-        object.save()  
+        # object=Internship.objects.create(name=name,email=email,phoneno=phoneno,dob=dob,institute=institute,course=course,areaofinterest=areaofinterest,hours=hours)
+        # object.save()  
+        post.save()
         return redirect('internshipForm')
     else :
         return render(request,'support/internshipForm.html')
