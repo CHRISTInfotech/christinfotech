@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-*gu8%c-v+cj0)*!$ynya+r1(##4=ws(&-nz=$r2!(!c=8foqr7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['christinfotech.org','127.0.0.1']
+if DEBUG == False:
+    ALLOWED_HOSTS = ['10.5.5.31', 'christinfotech.org']
+else:
+    ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['christinfotech.org','127.0.0.1']
 
 
 # Application definition
@@ -124,7 +128,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/home/eihy0p9s0spe/public_html/christinfotech/media/'
+MEDIA_ROOT = '/home/christinfotech014/Documents/christinfotech/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
