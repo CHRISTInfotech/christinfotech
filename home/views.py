@@ -60,7 +60,7 @@ def internshipForm(request):
 
 
 def serviceForm(request):
-    if request.method == "POST":
+    if request.method == "POST" and request.FILES:
         fname=request.POST['fname']
         lname=request.POST['lname']
         phoneno=request.POST['phoneno']
@@ -72,7 +72,22 @@ def serviceForm(request):
 
         object=Development.objects.create(fname=fname,lname=lname,phoneno=phoneno,email=email,compinst=compinst,department=department,requestdesc=requestdesc,document=document)
         object.save()
+        messages.success(request, "Request received, will get back to you soon. ")
         return redirect('serviceForm')
+    
+    elif request.method == "POST":
+            fname=request.POST['fname']
+            lname=request.POST['lname']
+            phoneno=request.POST['phoneno']
+            email=request.POST['email']
+            compinst=request.POST['compinst']
+            department=request.POST['department']
+            requestdesc=request.POST['requestdesc']
+
+            object=Development.objects.create(fname=fname,lname=lname,phoneno=phoneno,email=email,compinst=compinst,department=department,requestdesc=requestdesc)
+            object.save()
+            messages.success(request, "Request received, will get back to you soon. ")
+            return redirect('serviceForm')
     else :
         return render(request,'support/service.html')
 
