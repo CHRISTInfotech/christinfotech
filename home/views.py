@@ -122,4 +122,7 @@ def ourProduct(request):
     # else:
     #     return render(request, 'home/index.html')
 
-
+    
+def ourTeam(request):
+    return render(request,'aboutus/aboutus.html')
+    

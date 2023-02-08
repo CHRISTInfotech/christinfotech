@@ -9,13 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christ Infotech</title>
 
-    {% block extraStyles %}
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-    <link rel="stylesheet" href="{% static 'css/style.scss' %}">
-
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-
 
     <!-- Option 1: Include in HTML -->
     <link rel="shortcut icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
@@ -31,7 +26,7 @@
 
     <!-- bootstarp js bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-Bootstrap Font Icon CSS  -->
+    <!-- Bootstrap Font Icon CSS  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
@@ -47,7 +42,8 @@ Bootstrap Font Icon CSS  -->
     <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script> --> -->
     <!--Jquery cdn-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Bootstrap 5 Navbar -->
+    {% block extraStyles %}
+    
     {% endblock %}
 </head>
 
@@ -84,7 +80,7 @@ Bootstrap Font Icon CSS  -->
                                 <!-- <a href="#ourFocus" class="nav-link">Our Focus</a> -->
                             </li>
                             <li class="nav-item">
-                                <a href="{% url 'main' %}#ourTeam" class="nav-link navbar-link">Our Team</a>
+                                <a href="{% url 'ourTeam' %}" class="nav-link navbar-link">Our Team</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{% url 'ourProduct' %}" class="nav-link navbar-link">Our Product</a>
