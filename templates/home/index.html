@@ -2,7 +2,12 @@
 {% load static %}
 
 {% block content %}
-
+{% for msg in messages %}
+<div class="alert alert-info alert-dismissible fade show" role="alert">    
+    {{ msg }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
 <div class="row pb-5">
 
     <div class="col-lg-6 pb-5">
@@ -157,7 +162,7 @@
                                     d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z" />
                             </svg>
                         </div>
-                        <h3 class="card-title mb-3">AI Projects</h3>
+                        <h3 class="card-title mb-3">AI-IOT Projects</h3>
                         <p class="card-text">
                             Data analytics is the future, and the future is NOW! Every mouse click,
                             keyboard button press, swipe or tap is used to shape business decisions.
@@ -270,7 +275,7 @@
                             alt="Team-3">
                         <h3 class="card-title mb-3">Alanso Mathew</h3>
                         <p class="card-text">Alanso Mathew is working as Software Developer in CHRIST Infotech.</p>
-                        <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                        <a href="https://twitter.com/alansomathew" target="_blank"><i class="bi bi-twitter text-dark mx-1"></i></a>
                         <a href="#"><i class="bi bi-github text-dark mx-1"></i></a>
                         <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
                         <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
@@ -294,7 +299,25 @@
         </div>
     </div>
 </section>
-
-
+<section id="contactus">
+    <footer id="footer">         
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="section-heading">Subscribe to our Newsletter</h2>
+                        <p>Join the Newsletter & Get them Free, Every Month!</p>
+                    </div>
+                    <div class="col-lg-6 ">
+                        <form class="needs-validation" action="" method="post">
+                            {% csrf_token %}
+                            <input  type="email" class="form-control" id="validationCustom01"  name="email" required><input type="submit" value="Subscribe">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</section>
 
 {% endblock content %}

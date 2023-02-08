@@ -23,3 +23,6 @@ class Development(models.Model):
     department=models.CharField(max_length=100)
     requestdesc= models.TextField(null=True)
     document=models.FileField(upload_to="media")
+    
+class Newsletter(models.Model):
+    email_sub=models.EmailField(unique=True)

@@ -1,11 +1,22 @@
 from django.shortcuts import render,redirect
-from adminPanel.models import Internship, Development
+from adminPanel.models import Internship, Development, Newsletter
 from django.contrib import messages
 # Create your views here.
 
 
 def index(request):
-    return render(request, 'home/index.html')
+    if request.method == "POST":
+        email_sub=request.POST['email'] 
+        obj=Newsletter.objects.filter(email_sub=email_sub).count()
+        if obj >= 1:
+            messages.success(request, "EmailID already exhists")    
+            return redirect('main')
+        else:
+            Newsletter.objects.create(email_sub=email_sub)    
+            messages.success(request, "Thank You for subscribing to our newletter!")    
+            return redirect('main')
+    else:
+        return render(request, 'home/index.html')
 
 def internship(request):
     return render(request,'internship/internship.html')
@@ -94,5 +105,21 @@ def serviceForm(request):
 def ourProduct(request):
     return render(request,'products/products.html')
 
+# def newsLetter(request):
+#     if request.method == "POST":
+#         email_sub=request.POST['email']
+        
+#         Newsletter.objects.create(email_sub=email_sub)
+        
+#         return redirect()
+    # if request.method == "POST":
+    #     if request.POST['email'] != "":
+    #         email_sub=request.POST['email']        
+    #         Newsletter.objects.create(email_sub=email_sub)        
+    #         return redirect('main')
+    #     else:
+    #         return render(request, 'home/index.html')
+    # else:
+    #     return render(request, 'home/index.html')
 
 
