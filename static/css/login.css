@@ -50,7 +50,7 @@ body {
 .col-left {
   width: 60%;
   -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
-  clip-path: polygon(0 0, 0% 100%, 100% 0);
+  clip-path: polygon(0 0, 0% 102%, 96% 0);
   background: #0275d8;
 }
 

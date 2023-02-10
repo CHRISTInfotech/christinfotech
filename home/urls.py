@@ -9,5 +9,4 @@ urlpatterns = [
     path('serviceForm',serviceForm,name='serviceForm'),
     path('ourProduct',ourProduct,name='ourProduct'),
     path('ourTeam',ourTeam,name="ourTeam"),
-    
 ]
