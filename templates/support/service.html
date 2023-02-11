@@ -131,11 +131,11 @@
                         
   
                         <label class="fw-bold">Upload Document</label>
-                        <div class="input-group mb-4">
-                                <input name="document" class="form-control" type="file" id="file" placeholder="Upload Document" >
-                                {% comment %} <div class="invalid-feedback">
+                        <div class="input-group mb-4" required>
+                                <input name="document" class="form-control" type="file" id="file" placeholder="Upload Document" required>
+                                 <div class="invalid-feedback">
                                     This Field is required 
-                                </div> {% endcomment %}
+                                </div> 
                         </div> 
 
                         <div class="row">

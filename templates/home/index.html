@@ -211,9 +211,9 @@
                         <p>Join the Newsletter & Get them Free, Every Month!</p>
                     </div>
                     <div class="col-lg-6 ">
-                        <form class="needs-validation" action="" method="post">
+                        <form class="needs-validation" action="" method="post" autocomplete="off">
                             {% csrf_token %}
-                            <input  type="email" class="form-control" id="validationCustom01"  name="email" required><input type="submit" value="Subscribe">
+                            <input type="email" autocomplete="off" class="form-control" placeholder="Enter Email Address" id="validationCustom01" name="email" required ><input type="submit" value="Subscribe">
                         </form>
                     </div>
                 </div>

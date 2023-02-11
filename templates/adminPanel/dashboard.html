@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/christinfotech/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="/christinfotech/static/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="/christinfotech/static/css/dashboard.css">
     <title>Admin Dashboard</title>
@@ -66,21 +68,18 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
                 {% if user.is_authenticated %}
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <!-- <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li> -->
                 <li>
                   <a class="dropdown-item" href="logout">Logout</a>
-                </li>
-               
+                </li>               
                 <li>
                   <a class="dropdown-item" href="#">Welcome, {{user.username}}</a>
                 </li>
                 {% else %}
-
                 <li>
                   <a class="dropdown-item" href="login">Login</a>
-                </li>
-          
+                </li>          
                 {% endif %}
               </ul>
             </li>
@@ -143,27 +142,33 @@
               </div>
             </li>
             <li>
-              <a href="#" class="nav-link px-3">
+              <a href="{% url 'main' %}" class="nav-link px-3">
                 <span class="me-2"><i class="bi bi-book-fill"></i></span>
-                <span>Pages</span>
+                <span>Home</span>
               </a>
             </li>
             <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
             <li>
               <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
-                Addons
+                Forms
               </div>
             </li>
             <li>
-              <a href="#" class="nav-link px-3">
+              <a href="#" onclick="check_type('intern')" class="nav-link px-3">
                 <span class="me-2"><i class="bi bi-graph-up"></i></span>
-                <span>Charts</span>
+                <span>Internship</span>
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link px-3">
+              <a href="#" onclick="check_type('dev')" class="nav-link px-3">
                 <span class="me-2"><i class="bi bi-table"></i></span>
-                <span>Tables</span>
+                <span>Development</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="check_type('mail')" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-envelope"></i></span>
+                <span>Subscriptions</span>
               </a>
             </li>
           </ul>
@@ -187,35 +192,43 @@
         <div class="row">
           <div class="col-md-3 mb-3">
             <div class="card bg-primary text-white h-100">
-              <div class="card-body py-5">Primary Card</div>
+              <div class="card-body py-5"><h2>Internship requests</h2></div>
+              {%if user.is_authenticated %}                    
+              {% comment %} {% for item in qr %} {% endcomment %}
               <div class="card-footer d-flex">
-                View Details
+                Total
                 <span class="ms-auto">
-                  <i class="bi bi-chevron-right"></i>
+                  {{ qr.count }}<!-- <i class="bi bi-chevron-right"></i> -->
                 </span>
               </div>
+              {% comment %} {% endfor %} {% endcomment %}
+              {% endif %}
             </div>
           </div>
           <div class="col-md-3 mb-3">
             <div class="card bg-warning text-dark h-100">
-              <div class="card-body py-5">Warning Card</div>
+              {%if user.is_authenticated %}     
+              <div class="card-body py-5"><h2>Development requests</h2></div>
               <div class="card-footer d-flex">
-                View Details
+                Total
                 <span class="ms-auto">
-                  <i class="bi bi-chevron-right"></i>
+                  {{ dev_r.count }}<!-- <i class="bi bi-chevron-right"></i> -->
                 </span>
               </div>
             </div>
+            {% endif %}
           </div>
           <div class="col-md-3 mb-3">
             <div class="card bg-success text-white h-100">
-              <div class="card-body py-5">Success Card</div>
+              <div class="card-body py-5"><h2>Subscriptions</h2></div>
+              {%if user.is_authenticated %}
               <div class="card-footer d-flex">
-                View Details
+                Total
                 <span class="ms-auto">
-                  <i class="bi bi-chevron-right"></i>
+                  {{ email_r.count }}<!-- <i class="bi bi-chevron-right"></i> -->
                 </span>
               </div>
+              {% endif %}
             </div>
           </div>
           <div class="col-md-3 mb-3">
@@ -230,7 +243,7 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-md-6 mb-3">
             <div class="card h-100">
               <div class="card-header">
@@ -253,8 +266,8 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
+        </div> -->
+        <div class="row" id="intern_tb" style="display:block">
           <div class="col-md-12 mb-3">
             <div class="card">
               <div class="card-header">
@@ -269,6 +282,7 @@
                   >                 
                     <thead>
                       <tr>
+                        <th>Request Date</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
@@ -283,7 +297,9 @@
                     <tbody>
                       {%if user.is_authenticated %}                    
                       {% for item in qr %}
+
                       <tr>
+                        <td>{{ item.request_date }}</td>
                         <td>{{ item.name }}</td>
                         <td>{{ item.email }}</td>
                         <td>{{ item.phoneno }}</td>
@@ -292,37 +308,145 @@
                         <td>{{ item.course }}</td>
                         <td>{{ item.areaofinterest }}</td>
                         <td>{{ item.hours }}</td>
-                        <td><a href="{{ item.resume.url }}" class="text-decoration-none " download><button class="btn-outline-dark rounded-5">Download</button></a></td>
+                        {% if item.resume.url != null %}
+                        <td><a href="{{ item.resume.url }}" class="text-decoration-none " download><button class="btn btn-outline-secondary "><i class="bi bi-download"></i></button></a></td>
+                        {% else%}
+                        <td>No Data</td>
+                        {% endif %}
                       </tr>
                       {% endfor %}
                       {% endif %}
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>DOB</th>
-                        <th>Institute</th>
-                        <th>Course</th>
-                        <th>Interest</th>
-                        <th>Duration</th>
-                      </tr>
-                    </tfoot>
-                    
+                    </tbody>                    
                   </table>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+                      <!-- Development Table -->
+
+                      <div class="row" id="dev_tb" style="display:none">
+                        <div class="col-md-12 mb-3">
+                          <div class="card">
+                            <div class="card-header">
+                              <span><i class="bi bi-table me-2"></i></span> Development Requested Details
+                            </div>
+                            <div class="card-body">
+                              <div class="table-responsive">
+                                <table
+                                  id="example"
+                                  class="table table-striped data-table"
+                                  style="width: 100%"
+                                >                 
+                                  <thead>
+                                    <tr>
+                                      <th>Request Date</th>
+                                      <th>First Name</th>
+                                      <th>Last Name</th>
+                                      <th>Phone</th>
+                                      <th>Email</th>
+                                      <th>Compant/Institute</th>
+                                      <th>Departnment</th>
+                                      <th>Description</th>
+                                      <th>Resume</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {%if user.is_authenticated %}                    
+                                    {% for dev_item in dev_r %}
+                                    <tr>
+                                      <td>{{ dev_item.request_date }}</td>
+                                      <td>{{ dev_item.fname }}</td>
+                                      <td>{{ dev_item.lname }}</td>
+                                      <td>{{ dev_item.phoneno }}</td>
+                                      <td>{{ dev_item.email }}</td>
+                                      <td>{{ dev_item.compinst }}</td>
+                                      <td>{{ dev_item.department }}</td>
+                                      <td>{{ dev_item.requestdesc }}</td>
+                                      {% if dev_item.document.url != null %}
+                                      <td><a href="{{ dev_item.document.url }}" class="text-decoration-none " download><button class="btn btn-outline-secondary "><i class="bi bi-download"></i></button></a></td>
+                                        {% else%}
+                                        <td>No Data</td>
+                                        {% endif %}                                      
+                                    </tr>
+                                    {% endfor %}
+                                    {% endif %}
+                                  </tbody>                    
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                       <!-- Subscription Table -->
+
+                       <div class="row" id="mail_tb" style="display:none">
+                        <div class="col-md-12 mb-3">
+                          <div class="card">
+                            <div class="card-header">
+                              <span><i class="bi bi-table me-2"></i></span> Subscription Details
+                            </div>
+                            <div class="card-body">
+                              <div class="table-responsive">
+                                <table
+                                  id="example"
+                                  class="table table-striped data-table"
+                                  style="width: 100%"
+                                >                 
+                                  <thead>
+                                    <tr>
+                                      <th>Sl. No</th>
+                                      <th>Email Address</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {%if user.is_authenticated %}                    
+                                    {% for e_item in email_r %}
+                                    <tr>
+                                      <td>{{ e_item.id }}</td>
+                                      <td>{{ e_item.email_sub }}</td>                                   
+                                    </tr>
+                                    {% endfor %}
+                                    {% endif %}
+                                  </tbody>                    
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
       </div>
     </main>
+    
     <script src="/christinfotech/static/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>   
-    <script src="/christinfotech/static/js/dataTables.bootstrap5.min.js"></script>
+    <!-- <script src="/christinfotech/static/js/dataTables.bootstrap5.min.js"></script> -->
     <script src="/christinfotech/static/js/jquery-3.5.1.js"></script>
     <script src="/christinfotech/static/js/jquery.dataTables.min.js"></script>
     <script src="/christinfotech/static/js/script.js"></script>
+
+    <script type="text/javascript">
+      function check_type(type){
+         if (type == "intern"){
+             document.getElementById("intern_tb").style.display = "block";
+             document.getElementById("dev_tb").style.display = "none";
+             document.getElementById("mail_tb").style.display = "none";
+         } else if (type == "dev"){ 
+             document.getElementById("dev_tb").style.display = "block";
+             document.getElementById("intern_tb").style.display = "none";
+             document.getElementById("mail_tb").style.display = "none";
+         } else if (type == "mail"){ 
+             document.getElementById("mail_tb").style.display = "block";
+             document.getElementById("dev_tb").style.display = "none";
+             document.getElementById("intern_tb").style.display = "none";
+         }else {
+             document.getElementById("dev_tb").style.display = "none";
+             document.getElementById("intern_tb").style.display = "none";
+             document.getElementById("mail_tb").style.display = "none";
+         }
+      }
+     </script>
   </body>
 </html>

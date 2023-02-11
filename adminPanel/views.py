@@ -1,14 +1,19 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import login, authenticate, logout  #add this
 from django.contrib.auth.forms import AuthenticationForm #add this
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Internship
+from .models import Internship, Development, Newsletter
 
 # Create your views here.
 
+@login_required
 def dashboard(request):
-    query_results = Internship.objects.all() # Collect all records from table 
-    return render(request,'adminPanel/dashboard.html',{'qr':query_results})
+		query_results = Internship.objects.all() # Collect all records from table 
+		dev_res = Development.objects.all()
+		sub_res = Newsletter.objects.all()
+		
+		return render(request,'adminPanel/dashboard.html',context={'qr':query_results, 'dev_r':dev_res, 'email_r':sub_res})
 
 # def login(request):
 #     return render(request,'adminPanel/login.html')

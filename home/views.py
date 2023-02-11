@@ -9,11 +9,11 @@ def index(request):
         email_sub=request.POST['email'] 
         obj=Newsletter.objects.filter(email_sub=email_sub).count()
         if obj >= 1:
-            messages.success(request, "Email-ID already exhists")    
+            messages.success(request, "You're already subscribed. Thank You!")    
             return redirect('main')
         else:
             Newsletter.objects.create(email_sub=email_sub)    
-            messages.success(request, "Thank You for subscribing to our newletter!")    
+            messages.success(request, "Thank You for subscribing to our newsletter!")    
             return redirect('main')
     else:
         return render(request, 'home/index.html')

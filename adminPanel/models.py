@@ -3,6 +3,7 @@ from django.utils import timezone
 
 # Create your models here.
 class Internship(models.Model):
+    request_date = models.DateField(auto_now_add = True)   
     name=models.CharField(max_length=50)
     email=models.CharField(max_length=50)
     phoneno=models.CharField(max_length=10,null=True)
@@ -15,6 +16,7 @@ class Internship(models.Model):
 
 
 class Development(models.Model):
+    request_date = models.DateField(auto_now_add = True)
     fname=models.CharField(max_length=50)
     lname=models.CharField(max_length=50)
     phoneno=models.CharField(max_length=10,null=True)
