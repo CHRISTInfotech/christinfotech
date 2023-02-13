@@ -42,6 +42,31 @@ charts.forEach(function (chart) {
 
 $(document).ready(function () {
   $(".data-table").each(function (_, table) {
-    $(table).DataTable();
+    $(table).DataTable({
+      "order": [[ 0, "desc" ]]
+    });    
   });
+  $('.dataTables_length').addClass('bs-select');
 });
+
+// for table-data switch 
+
+function check_type(type){
+if (type == "intern"){
+    document.getElementById("intern_tb").style.display = "block";
+    document.getElementById("dev_tb").style.display = "none";
+    document.getElementById("mail_tb").style.display = "none";
+} else if (type == "dev"){ 
+    document.getElementById("dev_tb").style.display = "block";
+    document.getElementById("intern_tb").style.display = "none";
+    document.getElementById("mail_tb").style.display = "none";
+} else if (type == "mail"){ 
+    document.getElementById("mail_tb").style.display = "block";
+    document.getElementById("dev_tb").style.display = "none";
+    document.getElementById("intern_tb").style.display = "none";
+}else {
+    document.getElementById("dev_tb").style.display = "none";
+    document.getElementById("intern_tb").style.display = "none";
+    document.getElementById("mail_tb").style.display = "none";
+}
+}
