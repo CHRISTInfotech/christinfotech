@@ -7,7 +7,7 @@ class Internship(models.Model):
     name=models.CharField(max_length=50)
     email=models.CharField(max_length=50)
     phoneno=models.CharField(max_length=10,null=True)
-    dob=models.DateField(default=timezone.now)
+    dob=models.DateField(default=timezone.now,)
     institute=models.CharField(max_length=100)
     course=models.CharField(max_length=50)
     areaofinterest=models.CharField(max_length=50)

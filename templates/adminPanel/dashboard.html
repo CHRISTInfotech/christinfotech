@@ -111,7 +111,6 @@
                 <span>Dashboard</span>
               </a>
             </li>
-            <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
             <!-- <li>
               <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
                 Interface
@@ -144,12 +143,7 @@
                 </ul>
               </div>
             </li> -->
-            <li>
-              <a href="{% url 'main' %}" class="nav-link px-3">
-                <span class="me-2"><i class="bi bi-house"></i></span>
-                <span>Home</span>
-              </a>
-            </li>
+            
             <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
             <li>
               <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
@@ -172,6 +166,13 @@
               <a href="#" onclick="check_type('mail')" class="nav-link px-3">
                 <span class="me-2"><i class="bi bi-envelope"></i></span>
                 <span>Subscriptions</span>
+              </a>
+            </li>
+            <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
+            <li>
+              <a href="{% url 'main' %}" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-house"></i></span>
+                <span>Home</span>
               </a>
             </li>
           </ul>
@@ -303,11 +304,11 @@
                       {% for item in qr %}
 
                       <tr>
-                        <td>{{ item.request_date }}</td>
+                        <td>{{ item.request_date|date:"d-M-Y" }}</td>
                         <td>{{ item.name }}</td>
                         <td>{{ item.email }}</td>
                         <td>{{ item.phoneno }}</td>
-                        <td>{{ item.dob }}</td>
+                        <td>{{ item.dob|date:"d-M-Y" }}</td>
                         <td>{{ item.institute }}</td>
                         <td>{{ item.course }}</td>
                         <td>{{ item.areaofinterest }}</td>
@@ -345,7 +346,7 @@
                                 >                 
                                   <thead>
                                     <tr>
-                                      <th>Request Date</th>
+                                      <th>Request Date|date:"d-M-Y"</th>
                                       <th>First Name</th>
                                       <th>Last Name</th>
                                       <th>Phone</th>
@@ -360,7 +361,7 @@
                                     {%if user.is_authenticated %}                    
                                     {% for dev_item in dev_r %}
                                     <tr>
-                                      <td>{{ dev_item.request_date }}</td>
+                                      <td>{{ dev_item.request_date|date:"d-M-Y" }}</td>
                                       <td>{{ dev_item.fname }}</td>
                                       <td>{{ dev_item.lname }}</td>
                                       <td>{{ dev_item.phoneno }}</td>

@@ -1,17 +1,17 @@
-{% extends 'base.html' %}
+'{% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
 {% for msg in messages %}
-<div class="alert alert-info alert-dismissible fade show" role="alert">    
+<div class="alert alert-info alert-dismissible fade show" role="alert">
     {{ msg }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  {% endfor %}
+</div>
+{% endfor %}
 <div class="row pb-5">
 
     <div class="col-lg-6 pb-5">
-        <h1 class="fs-3">DEVELOP WITH</h1>
+        <!-- <h1 class="fs-3">DEVELOP WITH</h1> -->
         <div class="typewriter">
             <p class=" big-heading words "><span class="fw-bold " style="color: #252d6e;">CHRIST</span>
                 <span style="color:#003160 ;">INFOTECH</span>
@@ -90,25 +90,34 @@
 </section>
 
 
-<!-- Development-->
-<section class="white-section" id="services">
+<!-- Infotech-->
+<section class="white-section" id="about">
     <div class="container-fluid">
+        <div class="row align-items-cenetr justify-content-center">
+            <div class="col-md">
+                <img src="{% static 'images/about-us.gif' %}" alt="" class="rounded img-fluid">
+            </div>
+            <div class="col-md">
+                <h2 class="section-heading pt-5">CHRIST Infotech</h2>
+                <p class="lead mt-3 fs-6 ">CHRIST-Infotech the research and development wing of CHRIST Deemed to be
+                    University, Pune Lavas Campus-CHRIST-Infotech operates with ambitions, ideas and mission in the
+                    field of Information Technology and Data Science.
+                </p>
+                <p>We offer cutting-edge, ground-breaking solutions across a range of fields, including machine
+                    learning/artificial intelligence, mobile application development, website designing and web-app
+                    development.</p>
+                <p>CHRIST Infotech helps organizations in adopting a cutting-edge digital perspective in the most
+                    dependable and cost-effective manner possible. We help you overcome technological obstacles and feel
+                    less overwhelmed by your digital transitions. Additionally, we are happy to offer internships to
+                    students, and we work hard to help the young, bright students progress to the next level.</p>
 
-        <div class="row align-items-cenetr justify-content-between">
-            <div class="col-lg-6 col-sm-12 d-flex justify-content-center">
-                <img src="{% static 'images/sli-2.png' %}" alt="" class="rounded img-fluid">
+
             </div>
-            <div class="col-lg-6  col-sm-12">
-                <a href="https://lavasa.christuniversity.in/" class="link-dark" target="_blank">
-                    <span class="fs-2">
-                        CHRIST UNIVERSITY <span class="fs-6">LAVASA, PUNE</span></span>
-                </a>
-                <p class="lead mt-3 fs-6">The off-site campus of CHRIST University offers a number of UG, PG, and doctoral-level programmes in the field of Commerce, Law, Data Science and Management. Equipped with state-of-the-art facilities and highly qualified faculties, the Analytical Hub aims to help students achieve academic excellence through a diverse range of teaching methodology, modern curriculum and innovative research practices. </p>
-                <p class="lead mt-3 fs-6">CHRIST(Deemed to be University) focuses on developing skills in emerging technologies, statistical analysis, and computational techniques. Students will ideate and develop research skills, while strengthening their core competency in the subject. With a combination of in-depth theoretical concepts and practical application, students will add significant value to the field of data science and the industry.</p>
-            </div>
+
         </div>
     </div>
 </section>
+
 
 
 <!-- about us -->
@@ -176,33 +185,39 @@
 
 </section>
 
-<!-- Infotech-->
-<section class="white-section" id="about">
+<!-- Christ University  -->
+
+<section class="white-section" id="services">
     <div class="container-fluid">
-        <div class="row align-items-cenetr justify-content-center">
 
-            <div class="col-md">
-                <h2 class="section-heading pt-5">CHRIST Infotech</h2>
-                <p class="lead mt-3 fs-6 ">CHRIST-Infotech the research and development wing of CHRIST Deemed to be University, Pune Lavas Campus-CHRIST-Infotech operates with ambitions, ideas and mission in the field of Information Technology and Data Science.
-                </p>
-                <p>We offer cutting-edge, ground-breaking solutions across a range of fields, including machine learning/artificial intelligence, mobile application development, website designing and web-app development.</p>
-                <p>CHRIST Infotech helps organizations in adopting a cutting-edge digital perspective in the most dependable and cost-effective manner possible. We help you overcome technological obstacles and feel less overwhelmed by your digital transitions. Additionally, we are happy to offer internships to students, and we work hard to help the young, bright students progress to the next level.</p>
-
-
+        <div class="row align-items-cenetr justify-content-between">
+            <div class="col-lg-6 col-sm-12 d-flex justify-content-center">
+                <img src="{% static 'images/sli-2.png' %}" alt="" class="rounded img-fluid">
             </div>
-            <div class="col-md">
-                <img src="{% static 'images/about-us.gif' %}" alt="" class="rounded img-fluid">
+            <div class="col-lg-6  col-sm-12">
+                <a href="https://lavasa.christuniversity.in/" class="link-dark" target="_blank">
+                    <span class="fs-2">
+                        CHRIST UNIVERSITY <span class="fs-6">LAVASA, PUNE</span></span>
+                </a>
+                <p class="lead mt-3 fs-6">The off-site campus of CHRIST University offers a number of UG, PG, and
+                    doctoral-level programmes in the field of Commerce, Law, Data Science and Management. Equipped with
+                    state-of-the-art facilities and highly qualified faculties, the Analytical Hub aims to help students
+                    achieve academic excellence through a diverse range of teaching methodology, modern curriculum and
+                    innovative research practices. </p>
+                <p class="lead mt-3 fs-6">CHRIST(Deemed to be University) focuses on developing skills in emerging
+                    technologies, statistical analysis, and computational techniques. Students will ideate and develop
+                    research skills, while strengthening their core competency in the subject. With a combination of
+                    in-depth theoretical concepts and practical application, students will add significant value to the
+                    field of data science and the industry.</p>
             </div>
         </div>
     </div>
 </section>
-
-
 <!-- test -->
 
 
 <section id="contactus">
-    <footer id="footer">         
+    <footer id="footer">
         <div class="footer-newsletter">
             <div class="container">
                 <div class="row">
@@ -213,7 +228,9 @@
                     <div class="col-lg-6 ">
                         <form class="needs-validation" action="" method="post" autocomplete="off">
                             {% csrf_token %}
-                            <input type="email" autocomplete="off" class="form-control" placeholder="Enter Email Address" id="validationCustom01" name="email" required ><input type="submit" value="Subscribe">
+                            <input type="email" autocomplete="off" class="form-control"
+                                placeholder="Enter Email Address" id="validationCustom01" name="email" required><input
+                                type="submit" value="Subscribe">
                         </form>
                     </div>
                 </div>
