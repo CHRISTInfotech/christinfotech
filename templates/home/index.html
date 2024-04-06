@@ -8,20 +8,16 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 {% endfor %}
-<div class="row pb-5">
+
+<div class="container-fluid row pb-5 colored-section">
 
     <div class="col-lg-6 pb-5">
         <!-- <h1 class="fs-3">DEVELOP WITH</h1> -->
         <div class="typewriter">
             <p class=" big-heading words "><span class="fw-bold " style="color: #252d6e;">CHRIST</span>
-                <span style="color:#003160 ;">INFOTECH</span>
+                <span style="color:#003160 ;">Infotech</span>
             </p>
         </div>
-
-        <!-- <div class="content ">
-                    <h2>CHRIST INFOTECH</h2>
-                    <h2>CHRIST INFOTECH</h2>
-                  </div> -->
 
         <div class="waviy">
             <span style="--i:1">R</span>
@@ -33,9 +29,9 @@
             <span style="--i:7">c</span>
             <span style="--i:8">h</span>
             <span style="--i:9"> </span>
-            <span style="--i:10">a</span>
-            <span style="--i:11">n</span>
-            <span style="--i:12">d</span>
+            <span style="--i:10"> </span>
+            <span style="--i:11">&</span>
+            <span style="--i:12"> </span>
             <span style="--i:13"> </span>
             <span style="--i:14">D</span>
             <span style="--i:15">e</span>
@@ -57,7 +53,7 @@
             <span style="--i:31">t</span>
             <span style="--i:32">e</span>
             <span style="--i:33">r</span>
-            <span style="--i:34">,</span>
+            <span style="--i:34">, </span>
             <span style="--i:35">L</span>
             <span style="--i:36">a</span>
             <span style="--i:37">v</span>
@@ -82,12 +78,7 @@
     <div class="col-lg-6 pt-5 h-100">
         <img class="title-image img-fluid rounded" src="{% static 'images/header-gif.gif' %}" alt="banner-img">
     </div>
-
 </div>
-
-</div>
-
-</section>
 
 
 <!-- Infotech-->
@@ -123,7 +114,7 @@
 <!-- about us -->
 <section class="colored-section" id="ourFocus">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row mb-5">
             <h2 class="section-heading pb-3 d-flex justify-content-center">
                 WE FOCUS ON
             </h2>
@@ -132,11 +123,11 @@
             <div class="col-md">
                 <div class="card bg-dark text-light">
                     <div class="card-body text-center">
-                        <div class="h1 mb-3">
+                        <div class="h1 mb-3 mt-5">
                             <i class="bi bi-phone icon-size"></i>
                         </div>
                         <h3 class="card-title mb-3">App Development</h3>
-                        <p class="card-text">
+                        <p class="card-text mb-5">
                             Our mobile app team create apps mostly for small-medium
                             clients with excellent design and top quality within reasonable
                             time and budget. Our team is comprised of native app developers.
@@ -147,11 +138,11 @@
             <div class="col-md">
                 <div class="card bg-secondary text-light">
                     <div class="card-body text-center">
-                        <div class="h1 mb-3">
+                        <div class="h1 mb-3 mt-5">
                             <i class="bi bi-laptop icon-size"></i>
                         </div>
                         <h3 class="card-title mb-3">Web Development</h3>
-                        <p class="card-text">
+                        <p class="card-text mb-5">
                             An interactive web application readily amplifies user engagement.
                             We craft your web destination with a clear
                             view of the business goal and ensure that it supports the user-journey.
@@ -162,7 +153,7 @@
             <div class="col-md">
                 <div class="card bg-dark text-light">
                     <div class="card-body text-center">
-                        <div class="h1 mb-3">
+                        <div class="h1 mb-3 mt-5">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                                 class="bi bi-robot" viewBox="0 0 16 16">
                                 <path
@@ -172,7 +163,7 @@
                             </svg>
                         </div>
                         <h3 class="card-title mb-3">AI-IOT Projects</h3>
-                        <p class="card-text">
+                        <p class="card-text mb-5">
                             Data analytics is the future, and the future is NOW! Every mouse click,
                             keyboard button press, swipe or tap is used to shape business decisions.
                             Data is information, and information is power.
@@ -185,90 +176,93 @@
 
 </section>
 
-<section class="white-section " id="quicklinks" >
-    
+<section class="white-section " id="quicklinks">
+
     <div class="container-fluid">
-        <div class="row">
+        <div class="row mb-5">
             <h2 class="section-heading pb-3 d-flex justify-content-center">
                 Quick Links
             </h2>
         </div>
         <div class="row text-center g-4">
             <div class="col-md">
-                <a href="https://letusdream.org/" target="_blank" rel="noopener noreferrer">
+                <a href="{% url 'ourProduct' %}" target="_blank" rel="noopener noreferrer">
                     <div class="card bg-light text-light">
                         <div class="card-body text-center">
                             <div class="h1 mb-3">
                                 <img src="{% static 'images/lud_logo.png' %}" alt="" height="100" width="130">
                             </div>
                             <h5 class="card-text text-primary mb-3">Let Us Dream</h5>
-                           
+
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-md">
-                <a href="http://apslavasa.christinfotech.org/" target="_blank" rel="noopener noreferrer">
+                <a href="{% url 'ourProduct' %}" target="_blank" rel="noopener noreferrer">
                     <div class="card bg-light text-light">
                         <div class="card-body text-center">
                             <div class="h1 mb-3">
-                                <!-- <img src="{% static 'images/lud_logo.png' %}" alt="" height="100" width="130"> -->
+                                <img src="{% static 'images/project-icon.png' %}" alt="" height="100" width="130">
                             </div>
-                            <h5 class="card-text text-primary mb-3">Academic and Professional Support System</h5>
-                           
+                            <h6 class="card-text text-primary mb-1">
+                                Academic & Professional Support 
+                            </h6>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-md">
-                <a href="http://greenvasa.christinfotech.org/" target="_blank" rel="noopener noreferrer">
+                <a href="{% url 'ourProduct' %}" target="_blank" rel="noopener noreferrer">
                     <div class="card bg-light text-light">
                         <div class="card-body text-center">
                             <div class="h1 mb-3">
-                                <img src="{% static 'images/logo_green.png' %}" alt="" height="100" >
+                                <img src="{% static 'images/logo_green.png' %}" alt="" height="100">
 
                             </div>
                             <h5 class="card-title text-primary mb-3">Greenvasa</h5>
-                           
+
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-md">
-                <a href="http://ebuslavasa.christuniversity.in/" target="_blank" rel="noopener noreferrer">
+                <a href="{% url 'ourProduct' %}" target="_blank" rel="noopener noreferrer">
                     <div class="card bg-light text-light">
                         <div class="card-body text-center">
                             <div class="h1 mb-3">
                                 <img src="{% static 'images/ezBus.png' %}" alt="" height="100" width="130">
                             </div>
                             <h5 class="card-title text-primary mb-3">EZBus</h5>
-                           
+
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-md">
-                <a href="https://mentoreezy.christinfotech.org/" target="_blank" rel="noopener noreferrer">
+                <a href="{% url 'ourProduct' %}" target="_blank" rel="noopener noreferrer">
                     <div class="card bg-light text-light">
                         <div class="card-body text-center">
                             <div class="h1 mb-3">
-                                <!-- <img src="{% static 'images/lud_logo.png' %}" alt="" height="100" width="130"> -->
+                                <div class="h1 mb-3">
+                                    <img src="{% static 'images/project-icon.png' %}" alt="" height="100" width="130">
+                                </div>
                             </div>
                             <h5 class="card-title text-primary mb-3">MentorEezy</h5>
-                           
+
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-md">
-                <a href="https://play.google.com/store/apps/details?id=walletview.example.walletview&pli=1" target="_blank" rel="noopener noreferrer">
+                <a href="{% url 'ourProduct' %}" target="_blank" rel="noopener noreferrer">
                     <div class="card bg-light text-light">
                         <div class="card-body text-center">
                             <div class="h1 mb-3">
                                 <img src="{% static 'images/wallet_logo.webp' %}" alt="" height="80" width="80">
                             </div>
                             <h5 class="card-title text-primary mb-3">Wallet View - Track</h5>
-                           
+
                         </div>
                     </div>
                 </a>
