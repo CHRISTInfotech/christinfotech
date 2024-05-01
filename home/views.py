@@ -29,12 +29,13 @@ def internshipForm(request):
         email=request.POST['email']
         phoneno=request.POST['phoneno']
         dob=request.POST['dob']
+        formatted_date = datetime.strptime(dob, '%d-%m-%Y').strftime('%Y-%m-%d')
         institute=request.POST['institute']
         course=request.POST['course']
         areaofinterest=request.POST['areaofinterest']
         hours=request.POST['hours']        
         resume=request.FILES['resume']
-        object=Internship.objects.create(name=name,email=email,phoneno=phoneno,dob=dob,institute=institute,course=course,areaofinterest=areaofinterest,hours=hours,resume=resume)
+        object=Internship.objects.create(name=name,email=email,phoneno=phoneno,dob=formatted_date,institute=institute,course=course,areaofinterest=areaofinterest,hours=hours,resume=resume)
         object.save()  
         messages.success(request, "Request received, will get back to you soon. ")
         return redirect('internshipForm')
