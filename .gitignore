@@ -7,3 +7,7 @@ home/migrations/
 christinfotech/__pycache__/
 media/
 venv/
+adminPanel/__pycache__
+adminPanel/__pycache__/
+adminPanel/migrations
+adminPanel/migrations/
