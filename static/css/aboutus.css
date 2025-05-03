@@ -142,3 +142,36 @@
     padding: 0px 0px 0px;
   }
 }
+.team-member {
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+.team-member:hover {
+  transform: translateY(-10px);
+}
+.team-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.team-img:hover {
+  filter: grayscale(0%);
+}
+.team-name {
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+.team-position {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+@media (max-width: 767px) {
+  .team-img {
+    width: 150px;
+    height: 150px;
+  }
+}
