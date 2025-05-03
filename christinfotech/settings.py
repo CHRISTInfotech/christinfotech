@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-*gu8%c-v+cj0)*!$ynya+r1(##4=ws(&-nz=$r2!(!c=8foqr7
 DEBUG = False
 
 if DEBUG == False:
-    ALLOWED_HOSTS = ['10.5.5.31', 'christinfotech.org']
+    ALLOWED_HOSTS = ['10.5.5.107', 'christinfotech.org']
 else:
     ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = ['christinfotech.org','127.0.0.1']
@@ -135,23 +135,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'christinfotech/static/'
-STATIC_ROOT = '/home/eihy0p9s0spe/public_html/christinfotech/static'
+STATIC_URL = '/static/'
+STATIC_ROOT = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
 MEDIA_URL = '/media/'
-# MEDIA_ROOT = '/home/christinfotech014/Documents/christinfotech/media'
-MEDIA_ROOT = './resume/'
+MEDIA_ROOT = '/resume/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-#File uploading
-MEDIA_URL = "/media/"
-
-
-
