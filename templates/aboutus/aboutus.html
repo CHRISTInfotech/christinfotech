@@ -3,88 +3,87 @@
 
 {% block extraStyles %}
 <link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+
 {% endblock extraStyles %}
 
 {% block content %}
 
-<!-- our team -->
+<!-- Our Team Section -->
+<section class="white-section py-5" id="developer">
+  <div class="container">
+    <h2 class="text-center section-heading mb-5">Our Core Team</h2>
+    
+    <div class="row">
+      <!-- First Row -->
+      <div class="col-lg-4 col-md-6 col-sm-12 team-member text-center">
+        <img src="{% static 'images/Team/1.png'%}" class="team-img mb-3" alt="Dr Fr Lijo Thomas">
+        <h4 class="team-name">Dr Fr Lijo Thomas</h4>
+        <p class="team-position">Director & Dean, Lavasa, Pune</p>
+      </div>
 
-<section class="white-section" id="developer">
+      <div class="col-lg-4 col-md-6 col-sm-12 team-member text-center">
+        <img src="{% static 'images/Team/frjossy.png'%}" class="team-img mb-3" alt="Dr Fr Jossy P George">
+        <h4 class="team-name">Dr Fr Jossy P George</h4>
+        <p class="team-position">Director & Dean, Delhi NCR Campus</p>
+      </div>
 
-    <div class="container-fluid-other">
-        <h2 class="text-center section-heading mb-5">Our Core Team</h2>
+      <div class="col-lg-4 col-md-6 col-sm-12 team-member text-center">
+        <img src="{% static 'images/Team/3.png'%}" class="team-img mb-3" alt="Fr Justin P Varghese">
+        <h4 class="team-name">Fr Justin P Varghese</h4>
+        <p class="team-position">Academic Coordinator</p>
+      </div>
 
-        <div class="row justify-content-center text-center mb-5">
+      <!-- Second Row -->
+      <div class="col-lg-3 col-md-6 col-sm-12 team-member text-center">
+        <img src="{% static 'images/Team/4.png'%}" class="team-img mb-3" alt="Thomas K T">
+        <h4 class="team-name">Thomas K T</h4>
+        <p class="team-position">Assistant Professor</p>
+      </div>
 
-            <div class="col-3">
-                <img src="{% static 'images/Team/1.png'%}" class="mb-3" height="200px">
-                <h4>Dr Fr Lijo Thomas</h4>
-                <span>Director & Dean, Lavasa, Pune</span>
-            </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 team-member text-center">
+        <img src="{% static 'images/Team/5.png'%}" class="team-img mb-3" alt="Alwin Joseph">
+        <h4 class="team-name">Alwin Joseph</h4>
+        <p class="team-position">Assistant Professor</p>
+      </div>
 
-            <div class="col-3">
-                <img src="{% static 'images/Team/2.png'%}" class="mb-3" height="200px">
-                <h4>Dr Fr Jossy P George</h4>
-                <span>Director & Dean, Delhi NCR Campus</span>
-            </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 team-member text-center">
+        <img src="{% static 'images/Team/E5299.jpg'%}" class="team-img mb-3" alt="Dr Ansul Saxena">
+        <h4 class="team-name">Naived George Eapen</h4>
+        <p class="team-position">Assistant Professor</p>
+      </div>
 
-            <div class="col-3">
-                <img src="{% static 'images/Team/3.png'%}" class="mb-3" height="200px">
-                <h4>Fr Justin P Varghese</h4>
-                <span>Academic Coordinator</span>
-            </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 team-member text-center">
+        <img src="{% static 'images/Team/E5298.jpg'%}" class="team-img mb-3" alt="Dr Ansul Saxena">
+        <h4 class="team-name">Dr Libin Chacko Samuel</h4>
+        <p class="team-position">Assistant Professor</p>
+      </div>
 
-        </div>
+      <!-- Third Row -->
+      <div class="col-lg-3 col-md-6 col-sm-12 team-member text-center">
+        <img src="{% static 'images/Team/E6164.jpg'%}" class="team-img mb-3" alt="Alanso Mathew">
+        <h4 class="team-name">Alanso Mathew</h4>
+        <p class="team-position">Software Engineer</p>
+      </div>
 
-        <div class="row justify-content-center text-center mb-5">
-
-            <div class="col-3">
-                <img src="{% static 'images/Team/4.png'%}" class="mb-3" height="200px">
-                <h4>Thomas K T</h4>
-                <span>Assistant Professor</span>
-            </div>
-
-            <div class="col-3">
-                <img src="{% static 'images/Team/5.png'%}" class="mb-3" height="200px">
-                <h4>Alwin Joseph</h4>
-                <span>Assistant Professor </span>
-            </div>
-
-            <div class="col-3">
-                <img src="{% static 'images/Team/6.png'%}" class="mb-3" height="200px">
-                <h4>Dr Ansul Saxena</h4>
-                <span>Assistant Professor </span>
-            </div>
-
-        </div>
-
-        <div class="row justify-content-center text-center mb-5">
-
-            <div class="col-3">
-                <img src="{% static 'images/Team/7.png'%}" class="mb-3" height="200px">
-                <h4>Alanso Mathew</h4>
-                <span>Software Engineer</span>
-            </div>
-
-            <div class="col-3">
-                <img src="{% static 'images/Team/8.png'%}" class="mb-3" height="200px">
-                <h4>Anjaly K R</h4>
-                <span>Junior Software Engineer</span>
-            </div>
-            <div class="col-3">
-                <img src="{% static 'images/Team/E8360.jpg'%}" class="mb-3" height="200px">
-                <h4>Chetan Deshpande</h4>
-                <span>Junior Software Engineer</span>
-            </div>
-            <div class="col-3">
-                <img src="{% static 'images/Team/E8638.jpg'%}" class="mb-3" height="200px">
-                <h4>P S Anusha</h4>
-                <span>Junior Software Engineer</span>
-            </div>
-
-        </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 team-member text-center">
+        <img src="{% static 'images/Team/8.png'%}" class="team-img mb-3" alt="Anjaly K R">
+        <h4 class="team-name">Anjaly K R</h4>
+        <p class="team-position">Junior Software Engineer</p>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 col-sm-12 team-member text-center">
+        <img src="{% static 'images/Team/E8360.jpg'%}" class="team-img mb-3" alt="Chetan Deshpande">
+        <h4 class="team-name">Chetan Deshpande</h4>
+        <p class="team-position">Junior Software Engineer</p>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 col-sm-12 team-member text-center">
+        <img src="{% static 'images/Team/E8638.jpg'%}" class="team-img mb-3" alt="P S Anusha">
+        <h4 class="team-name">P S Anusha</h4>
+        <p class="team-position">Junior Software Engineer</p>
+      </div>
     </div>
-
+  </div>
 </section>
 
 {% endblock content %}
